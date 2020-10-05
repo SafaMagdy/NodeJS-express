@@ -26,22 +26,22 @@ promoRouter.route('/')
 });
 
 promoRouter.route('/:promoId')
-.app.get((req,res,next) => {
+.get((req,res,next) => {
     res.end('Will send details of the promotion: ' + req.params.promoId +' to you!');
 })
 
-.app.post((req, res, next) => {
+.post((req, res, next) => {
   res.statusCode = 403;
   res.end('POST operation not supported on /promotions/'+ req.params.promoId);
 })
 
-.app.put((req, res, next) => {
+.put((req, res, next) => {
   res.write('Updating the promotion: ' + req.params.promoId + '\n');
   res.end('Will update the promotion: ' + req.body.name + 
         ' with details: ' + req.body.description);
 })
 
-.app.delete((req, res, next) => {
+.delete((req, res, next) => {
   res.end('Deleting promotion: ' + req.params.promoId);
 });
 
